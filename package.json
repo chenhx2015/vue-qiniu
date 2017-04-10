@@ -1,0 +1,19 @@
+{
+  "name": "vue-qiniu",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenhx9211/vue-qiniu.git"
+  },
+  "author": "chenhx9211@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenhx9211/vue-qiniu/issues"
+  },
+  "homepage": "https://github.com/chenhx9211/vue-qiniu#readme"
+}
