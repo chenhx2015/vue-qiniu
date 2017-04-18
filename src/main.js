@@ -1,2 +1,8 @@
 import Vue from 'vue'
-export * from './components/upload.vue'
+import App from './App'
+
+/* eslint-disable no-new */
+new Vue({
+    template: '<App/>',
+    components: { App }
+}).$mount('#app')

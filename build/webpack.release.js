@@ -18,38 +18,25 @@ module.exports = {
         umdNamedDefine: true
     },
     module: {
-        preLoaders: [{
-                test: /\.vue$/,
-                loader: 'eslint',
-                include: projectRoot,
-                exclude: /node_modules/
-            },
-            {
-                test: /\.js$/,
-                loader: 'eslint',
-                include: projectRoot,
-                exclude: /node_modules/
-            }
-        ],
         loaders: [{
                 test: /\.vue$/,
-                loader: 'vue'
+                loader: 'vue-loader',
+                query: {
+                    loaders: utils.cssLoaders({
+                        sourceMap: config.build.productionSourceMap
+                    })
+                }
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel'
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015'],
+                    plugins: ['transform-runtime']
+                }
             }
         ]
-    },
-    vue: {
-        loaders: utils.cssLoaders({
-            sourceMap: config.build.productionSourceMap
-        })
-    },
-    babel: {
-        presets: ['es2015'],
-        plugins: ['transform-runtime']
     }
 }
 
@@ -67,7 +54,7 @@ if (process.env.NODE_ENV === 'production') {
                 warnings: false
             }
         }),
-        new webpack.optimize.OccurenceOrderPlugin()
+        // new webpack.optimize.OccurenceOrderPlugin()
         // new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
     ]
 }
